@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scholarship Application Form</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+		
+		.container {
+			width: 80%;
+			margin: 40px auto;
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ddd;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.form-group {
+			margin-bottom: 20px;
+		}
+		
+		.label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		
+		.input-field {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+		}
+		
+		.input-field:focus {
+			border-color: #aaa;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.button {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		.button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Scholarship Application Form(FRESH APPLICATION)</h2>
+		<form>
+			<div class="form-group">
+				<label class="label" for="name">Full Name:</label>
+				<input type="text" id="name" class="input-field" required>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="email">Email Address:</label>
+				<input type="email" id="email" class="input-field" required>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="phone">Phone Number:</label>
+				<input type="tel" id="phone" class="input-field" required>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="address">Address:</label>
+				<textarea id="address" class="input-field" required></textarea>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="course">Course Applying For:</label>
+				<select id="course" class="input-field" required>
+					<option value="">Select Course</option>
+					<option value="BSc Computer Science">BSc Computer Science</option>
+					<option value="BSc Information Technology">BSc Information Technology</option>
+					<option value="BSc Engineering">BSc Engineering</option>
+                    <option value="Btech CSE(AI and ML)">Btech Computer Science</option>
+                    <option value="Ba">Bachelors in Arts</option>
+                    <option value="Bcom">Bachelors in Commerce</option>
+	
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="university">University:</label>
+				<select id="university" class="input-field" required>
+					<option value="">Select University</option>
+					<option value="SVU">SWAMI VIVEKANANDA University</option>
+					<option value="JU">JADAVPUR UNIVERSITY</option>
+					<option value="NIT">NARULA INSTITUTE OF TECHNOLOGY</option>
+                    <option value="HIT">HERITAGE INSTITUTE OF TECHNOLOGY</option>
+                    <option value="CU">CALCUTTA UNIVERSITY</option>
+					
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="academic-records">Academic Records:</label>
+				<input type="file" id="academic-records" class="input-field" required>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="personal-statement">Personal Statement:</label>
+				<textarea id="personal-statement" class="input-field" required></textarea>
+			</div>
+			
+			<div class="form-group">
+				<label class="label" for="reference-letter">Reference Letter:</label>
+				<input type="file" id="reference-letter" class="input-field" required>
+			</div>
+			
+			<button class="button" type="submit">Submit Application</button>
+		</form>
+	</div>
+</body>
+</html>
