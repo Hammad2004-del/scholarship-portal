@@ -103,3 +103,10 @@ Scholarship Portal/
 ├── .env.example
 ├── .gitignore
 └── README.md
+## Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Hammad2004-del/scholarship-portal.git
+cd scholarship-portal
