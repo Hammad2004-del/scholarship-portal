@@ -1,61 +1,105 @@
-# Scholarship Portal 🎓
+# 🎓 Scholarship Management Portal
 
-A full-stack scholarship management system that allows students to submit scholarship applications and renewals, while administrators can review and manage applications.
+A full-stack web-based Scholarship Management Portal designed to simplify the process of scholarship applications, renewals, document submission, and administrative review.
 
-## Features
+The system provides separate functionality for students and administrators, with secure authentication and a MySQL database for managing application data.
 
-### Student
+---
+
+## 🚀 Features
+
+### 👨‍🎓 Student Features
+
 - Student registration and login
-- Secure JWT authentication
+- Secure JWT-based authentication
+- Student dashboard
 - Submit fresh scholarship applications
-- Submit scholarship renewals
-- Upload academic records and reference letters
-- View application status
+- Submit scholarship renewal applications
+- Upload academic records and reference documents
+- View fresh application status
 - View renewal status
 - Refresh application status
+- Secure access to student-specific information
 
-### Admin
-- Secure admin authentication
+### 👨‍💼 Admin Features
+
+- Secure administrator authentication
 - Admin dashboard
 - View registered students
 - View fresh scholarship applications
 - View scholarship renewals
-- Approve applications
-- Reject applications
-- View uploaded documents
+- Approve scholarship applications
+- Reject scholarship applications
+- View uploaded student documents
 
-## Technology Stack
+---
+
+## 🛠️ Technology Stack
 
 ### Frontend
-- HTML
-- CSS
+
+- HTML5
+- CSS3
 - JavaScript
 
 ### Backend
+
 - Node.js
 - Express.js
 - JWT Authentication
 - Multer
 
 ### Database
+
 - MySQL
 
-## Project Structure
+### Development Tools
+
+- Visual Studio Code
+- Git
+- GitHub
+
+---
+
+## 📂 Project Structure
 
 ```text
-Scholarship Portal
+Scholarship Portal/
 │
-├── Frontend
-│   ├── Login
-│   ├── Student Dashboard
-│   ├── Fresh Application
-│   ├── Renewal
-│   └── Admin Dashboard
+├── middleware/
+│   └── verifyToken.js
 │
-└── Backend
-    ├── routes
-    ├── middleware
-    ├── uploads
-    ├── sql
-    ├── db.js
-    └── server.js
+├── routes/
+│   ├── admin.js
+│   ├── applications.js
+│   └── auth.js
+│
+├── sql/
+│   └── schema.sql
+│
+├── uploads/
+│   └── .gitkeep
+│
+├── AdminDashboard.html
+├── AdminLogin.html
+├── Freshform.html
+├── Renewal.html
+├── RenewalForm.html
+├── Scholarship.html
+├── dashboard2.html
+│
+├── createAdmin.js
+├── db.js
+├── disburse.js
+├── fresh.js
+├── renew.js
+│
+├── server.js
+├── portal.css
+│
+├── package.json
+├── package-lock.json
+│
+├── .env.example
+├── .gitignore
+└── README.md
