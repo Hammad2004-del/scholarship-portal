@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fresh Application — Scholarship Portal</title>
+	<link rel="stylesheet" href="portal.css">
+</head>
+<body>
+
+	<header class="portal-header">
+		<h1>
+			<svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="20" cy="20" r="18" stroke="#C89B3C" stroke-width="2"/>
+				<path d="M20 10L23 17H30L24.5 21.5L26.5 29L20 24.5L13.5 29L15.5 21.5L10 17H17L20 10Z" fill="#C89B3C"/>
+			</svg>
+			Scholarship Portal
+		</h1>
+	</header>
+
+	<div class="stepper">
+		<div class="step completed"><div class="dot">1</div><div class="label">Choose Path</div></div>
+		<div class="step active"><div class="dot">2</div><div class="label">Application Details</div></div>
+		<div class="step"><div class="dot">3</div><div class="label">Review &amp; Submit</div></div>
+	</div>
+
+	<div class="container">
+		<h2>Fresh Scholarship Application</h2>
+
+		<form>
+			<p class="form-section-title">Personal Details</p>
+
+			<div class="form-group">
+				<label class="label" for="name">Full Name</label>
+				<input type="text" id="name" class="input-field" required>
+			</div>
+
+			<div class="form-group">
+				<label class="label" for="email">Email Address</label>
+				<input type="email" id="email" class="input-field" required>
+			</div>
+
+			<div class="form-group">
+				<label class="label" for="phone">Phone Number</label>
+				<input type="tel" id="phone" class="input-field" required>
+			</div>
+
+			<div class="form-group">
+				<label class="label" for="address">Address</label>
+				<textarea id="address" class="input-field" required></textarea>
+			</div>
+
+			<p class="form-section-title">Academic Details</p>
+
+			<div class="form-group">
+				<label class="label" for="course">Course Applying For</label>
+				<select id="course" class="input-field" required>
+					<option value="">Select Course</option>
+					<option value="BSc Computer Science">BSc Computer Science</option>
+					<option value="BSc Information Technology">BSc Information Technology</option>
+					<option value="BSc Engineering">BSc Engineering</option>
+					<option value="BTech CSE (AI and ML)">BTech CSE (AI and ML)</option>
+					<option value="BA">Bachelor of Arts</option>
+					<option value="BCom">Bachelor of Commerce</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label class="label" for="university">University</label>
+				<select id="university" class="input-field" required>
+					<option value="">Select University</option>
+					<option value="SVU">Swami Vivekananda University</option>
+					<option value="JU">Jadavpur University</option>
+					<option value="NIT">Narula Institute of Technology</option>
+					<option value="HIT">Heritage Institute of Technology</option>
+					<option value="CU">Calcutta University</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label class="label" for="academic-records">Academic Records</label>
+				<input type="file" id="academic-records" class="input-field" required>
+			</div>
+
+			<p class="form-section-title">Statement &amp; References</p>
+
+			<div class="form-group">
+				<label class="label" for="personal-statement">Personal Statement</label>
+				<textarea id="personal-statement" class="input-field" required></textarea>
+			</div>
+
+			<div class="form-group">
+				<label class="label" for="reference-letter">Reference Letter</label>
+				<input type="file" id="reference-letter" class="input-field" required>
+			</div>
+
+			<button class="button" type="submit">Submit Application</button>
+		</form>
+	</div>
+	<script src="fresh.js"></script>
+	
+</body>
+</html>

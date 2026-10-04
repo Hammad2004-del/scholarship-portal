@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewal Login — Scholarship Portal</title>
+    <link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+    <header class="portal-header">
+        <h1>
+            <svg class="seal" viewBox="0 0 40 40" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18"
+                        stroke="#C89B3C" stroke-width="2"/>
+                <path d="M20 10L23 17H30L24.5 21.5L26.5 29L20 24.5L13.5 29L15.5 21.5L10 17H17L20 10Z"
+                      fill="#C89B3C"/>
+            </svg>
+
+            Scholarship Portal
+        </h1>
+    </header>
+
+
+    <div class="stepper">
+
+        <div class="step completed">
+            <div class="dot">1</div>
+            <div class="label">Choose Path</div>
+        </div>
+
+        <div class="step active">
+            <div class="dot">2</div>
+            <div class="label">Verify Identity</div>
+        </div>
+
+        <div class="step">
+            <div class="dot">3</div>
+            <div class="label">Submit Renewal</div>
+        </div>
+
+    </div>
+
+
+    <div class="login-container">
+
+        <h2>Login for Renewal</h2>
+
+        <p class="sub">
+            Enter your registered student credentials to continue
+        </p>
+
+
+        <form id="login-form">
+
+            <!-- Email -->
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required
+            >
+
+
+            <!-- Password -->
+            <label for="password">Password</label>
+
+            <div style="position: relative; width: 100%;">
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    style="width: 100%; padding-right: 75px;"
+                >
+
+                <button
+                    type="button"
+                    id="show-password"
+                    style="
+                        position: absolute;
+                        right: 8px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border: none;
+                        background: transparent;
+                        cursor: pointer;
+                        color: #1b2a4a;
+                        font-weight: bold;
+                        padding: 5px;
+                    "
+                >
+                    Show
+                </button>
+
+            </div>
+
+
+            <button id="login-btn" type="submit">
+                Login
+            </button>
+
+        </form>
+
+
+        <div id="error-message" class="alert alert-error"></div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           SHOW / HIDE PASSWORD
+           ========================= */
+
+        const passwordInput =
+            document.getElementById("password");
+
+        const showPasswordButton =
+            document.getElementById("show-password");
+
+
+        showPasswordButton.addEventListener("click", function () {
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+                showPasswordButton.textContent = "Hide";
+
+            } else {
+
+                passwordInput.type = "password";
+
+                showPasswordButton.textContent = "Show";
+
+            }
+
+        });
+
+
+        /* =========================
+           LOGIN
+           ========================= */
+
+        const loginForm =
+            document.getElementById("login-form");
+
+        loginForm.addEventListener("submit", async function (e) {
+
+            e.preventDefault();
+
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const errorMessage =
+                document.getElementById("error-message");
+
+            const loginBtn =
+                document.getElementById("login-btn");
+
+
+            errorMessage.textContent = "";
+
+            loginBtn.disabled = true;
+            loginBtn.textContent = "Logging in...";
+
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:5000/api/login",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                        })
+                    }
+                );
+
+
+                const data = await response.json();
+
+
+                if (!response.ok) {
+
+                    errorMessage.textContent =
+                        data.error ||
+                        "Invalid email or password.";
+
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = "Login";
+
+                    return;
+                }
+
+
+                /* Save JWT token */
+                localStorage.setItem(
+                    "token",
+                    data.token
+                );
+
+
+                /* Save student information */
+                if (data.student) {
+
+                    localStorage.setItem(
+                        "student",
+                        JSON.stringify(data.student)
+                    );
+
+                }
+
+
+                /* Login successful */
+                alert("Login successful!");
+
+
+                /*
+                 * Go to the actual renewal
+                 * submission page.
+                 */
+                window.location.href =
+                    "RenewalForm.html";
+
+
+            } catch (error) {
+
+                console.error(
+                    "Login error:",
+                    error
+                );
+
+                errorMessage.textContent =
+                    "Could not connect to the server.";
+
+            }
+
+
+            loginBtn.disabled = false;
+            loginBtn.textContent = "Login";
+
+        });
+
+    </script>
+
+</body>
+</html>

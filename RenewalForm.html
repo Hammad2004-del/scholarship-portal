@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Renewal — Scholarship Portal</title>
+    <link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+<header class="portal-header">
+    <h1>Scholarship Portal</h1>
+</header>
+
+<div class="container">
+
+    <h2>Renew Your Scholarship</h2>
+
+    <form id="renewal-form">
+
+        <div class="form-group">
+            <label class="label" for="year-of-study">
+                Current Year of Study
+            </label>
+
+            <select id="year-of-study" class="input-field" required>
+                <option value="">Select year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+                <option value="5">5th Year</option>
+                <option value="6">6th Year</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="label" for="academic-records">
+                Academic Records
+            </label>
+
+            <input
+                type="file"
+                id="academic-records"
+                class="input-field"
+                required
+            >
+        </div>
+
+        <button class="button" type="submit">
+            Submit Renewal
+        </button>
+
+    </form>
+
+</div>
+
+<script src="renew.js"></script>
+
+</body>
+</html>
